@@ -1,21 +1,16 @@
 {
-  "name": "electron-quick-start",
+  "name": "five-fps-game-overlay",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "GameOverlay for FiveFPS!",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "rescript": "rescript build -w -with-deps"
+    "rescript": "rescript build -w -with-deps",
+    "build": "electron-packager . five-fps --overwrite --asar=false --platform=win32 --arch=x64 --icon=assets/ico.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --win32metadata.requested-execution-level=requireAdministrator --version-string.ProductName='five-fps'"
   },
   "repository": "https://github.com/electron/electron-quick-start",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
-  ],
-  "author": "GitHub",
+  "keywords": [],
+  "author": "Gabriel Hoppe",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^16.0.5"
@@ -23,6 +18,7 @@
   "dependencies": {
     "@rescript/react": "^0.10.3",
     "electron-overlay-window": "^2.0.1",
+    "electron-packager": "^15.4.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rescript": "^9.1.4",

@@ -8,7 +8,7 @@ rule deps
   restat = 1
 o .\src\Index.d : deps .\src\Index.ast
 rule mij
-  command = "C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\node_modules\rescript\win32\bsc.exe" -I ".\src\@types" -I ".\src\assets" -I ".\src\lib" -I ".\src" -I "C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\node_modules\@rescript\react\lib\ocaml"   -bs-package-name rescript-electron-setup -bs-package-output commonjs:lib\js\$in_d:.js -bs-v $g_finger $i
+  command = "C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\node_modules\rescript\win32\bsc.exe" -I ".\src\@types" -I ".\src\assets" -I ".\src\lib\AttachControl" -I ".\src\lib" -I ".\src" -I "C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\node_modules\@rescript\react\lib\ocaml"   -bs-package-name rescript-electron-setup -bs-package-output commonjs:lib\js\$in_d:.js -bs-v $g_finger $i
   dyndep = 1
   restat = 1
 o .\src\Index.cmj .\src\Index.cmi ..\js\.\src\Index.js : mij .\src\Index.ast

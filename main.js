@@ -3,9 +3,8 @@ const { ipcMain } = require("electron")
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 const path = require('path')
-const { overlayWindow } = require("electron-overlay-window");
-
 const { currentLoad, mem, graphics } = require("systeminformation");
+const AttachControl = require("./src/lib/AttachControl");
 
 let CURRENT_CPU_USAGE = 0.0;
 let CURRENT_MEMORY_USAGE = {memoryTotal: 0, memoryFree: 0, memoryPercentage: 0.0 };
@@ -18,7 +17,7 @@ function getCpuUsage() {
 }
 function getGpuUsage() {
   
-  const callback = data => CURRENT_GPU_USAGE = { gpuUsage: data.controllers[0].utilizationGpu };
+  const callback = data => CURRENT_GPU_USAGE = { gpuUsage: data.controllers[0].utilizationGpu ?? 0.0 };
   graphics(callback);
 }
 function getMemoryUsage() {
@@ -30,8 +29,6 @@ function getMemoryUsage() {
   };
   mem(callback);
 }
-
-
 setInterval(getCpuUsage, 1500);
 setInterval(getMemoryUsage, 1500);
 setInterval(getGpuUsage, 1500);
@@ -58,7 +55,8 @@ function createWindow() {
     transparent: true,
     alwaysOnTop: true
   })
-
+  
+  mainWindow.hide();
   mainWindow.loadFile('index.html')
 
   /*
@@ -69,14 +67,16 @@ function createWindow() {
 
   mainWindow.setIgnoreMouseEvents(true);
   
-  overlayWindow.attachTo(mainWindow, "The Classic PW");
+  // overlayWindow.attachTo(mainWindow, "The Classic PW");
+  // overlayWindow.attachTo(mainWindow, "Counter-Strike: Global Offensive - Direct3D 9");
+
+  const attach = new AttachControl(mainWindow);
+  attach.startThread();
 }
 
 ipcMain.on("get-system-infos", (event, data) => {
 
   let returnValue = { cpu: CURRENT_CPU_USAGE, gpu: CURRENT_GPU_USAGE.gpuUsage, ...CURRENT_MEMORY_USAGE };
-
-  console.log({ returnValue });
 
   event.returnValue = returnValue;
 })

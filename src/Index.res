@@ -6,6 +6,7 @@ module App = {
 }
 
 switch ReactDOM.querySelector("#root") {
-| Some(root) => ReactDOM.render(<div> <App /> </div>, root)
-| None => ()
+  
+  | Some(root) => ReactDOM.render(<div> <App /> </div>, root)
+  | None => ()
 }

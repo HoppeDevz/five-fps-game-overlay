@@ -6,6 +6,7 @@ module ConfigReader = {
 
     let defaultSettings = {
 
+        "showHardwareOverlayHeader": true, 
         "hardwareOverlayPos": "top-left",
         "backgroundColor": "#08080864",
     }
@@ -49,7 +50,7 @@ module ConfigReader = {
 
         switch data {
 
-            | defaultSettingsType => data
+            | Some(data) => data
             | None => defaultSettings
         }
     }

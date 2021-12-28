@@ -34,6 +34,7 @@ let make = () => {
 
     let (containerPosition, setContainerPos) = React.useState(_ => "top-right")
     let (containerBackground, setContainerBackground) = React.useState(_ => "#08080864")
+    let (showHardwareOverlayHeader, setShowHardwareOverlayHeader) = React.useState(_ => true)
 
     let sendToIpcMain = () => {
 
@@ -53,6 +54,7 @@ let make = () => {
 
         setContainerPos(_ => data["hardwareOverlayPos"])
         setContainerBackground(_ => data["backgroundColor"])
+        setShowHardwareOverlayHeader(_ => data["showHardwareOverlayHeader"])
     }
 
     React.useEffect0(() => {
@@ -69,11 +71,17 @@ let make = () => {
             className={"system-informations" ++ " " ++ containerPosition}
         >
 
-            <h1 className="header-container">
+            {showHardwareOverlayHeader ?
+             
+                <h1 className="header-container">
 
-                <img className="image" src="./src/assets/rocket-20x20.png" />
-                <p className="text">{"FIVE.FPS" -> s}</p>
-            </h1>
+                    <img className="image" src="./src/assets/rocket-20x20.png" />
+                    <p className="text">{"FIVE.FPS" -> s}</p>
+                </h1>
+            : 
+                <div style={ReactDOM.Style.make(~display="none", ())}></div>
+            }
+            
 
             <div 
                 style={ReactDOM.Style.make(
