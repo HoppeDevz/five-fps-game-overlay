@@ -1,0 +1,22 @@
+rescript = 1
+rule cp
+  command = cmd.exe /C copy /Y $i $out >NUL
+rule touch
+ command = cmd.exe /C type nul >>$out & copy $out+,, >NUL
+o Index.cmi : cp ..\bs\.\src\Index.cmi
+o Index.cmj : cp ..\bs\.\src\Index.cmj
+o Index.cmt : cp ..\bs\.\src\Index.cmt
+o Index.res : cp ..\..\.\src\Index.res
+o HardwareOverlay.cmi : cp ..\bs\.\src\HardwareOverlay.cmi
+o HardwareOverlay.cmj : cp ..\bs\.\src\HardwareOverlay.cmj
+o HardwareOverlay.cmt : cp ..\bs\.\src\HardwareOverlay.cmt
+o HardwareOverlay.res : cp ..\..\.\src\HardwareOverlay.res
+o document.cmi : cp ..\bs\.\src\lib\document.cmi
+o document.cmj : cp ..\bs\.\src\lib\document.cmj
+o document.cmt : cp ..\bs\.\src\lib\document.cmt
+o document.res : cp ..\..\.\src\lib\document.res
+o electron.cmi : cp ..\bs\.\src\lib\electron.cmi
+o electron.cmj : cp ..\bs\.\src\lib\electron.cmj
+o electron.cmt : cp ..\bs\.\src\lib\electron.cmt
+o electron.res : cp ..\..\.\src\lib\electron.res
+build install.stamp : touch Index.cmi Index.cmj HardwareOverlay.cmi HardwareOverlay.cmj document.cmi document.cmj electron.cmi electron.cmj 

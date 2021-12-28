@@ -1,0 +1,38 @@
+#Start(15393280)
+
+  Warning number 27
+  C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\src\HardwareOverlay.res:38:15-24
+
+  36 │ 
+  37 │         switch response {
+  38 │             | systemInfo => setSystemInfo(_ => { 
+  39 │                 "cpu": response.cpu,  
+  40 │                 "gpu":response.gpu,
+
+  unused variable systemInfo.
+
+
+  Warning number 11
+  C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\src\HardwareOverlay.res:47:15-18
+
+  45 ┆             "memoryPercentage": response.memoryPercentage
+  46 ┆         })
+  47 ┆         | None => Js.log("None")
+  48 ┆     }
+  49 ┆ }
+
+  this match case is unused.
+
+
+  Warning number 26
+  C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\src\HardwareOverlay.res:53:13-20
+
+  51 │     React.useEffect0(() => {
+  52 │ 
+  53 │         let interval = Js.Global.setInterval(sendToIpcMain, 1500)
+  54 │         None
+  55 │     })
+
+  unused variable interval.
+
+#Done(15393516)

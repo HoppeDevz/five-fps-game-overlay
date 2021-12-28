@@ -1,0 +1,23 @@
+rescript = 1
+g_finger := C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\node_modules\@rescript\react\lib\ocaml\install.stamp
+rule astj
+  command = "C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\node_modules\rescript\win32\bsc.exe"  -bs-v 9.1.4 -bs-jsx 3  -absname -bs-ast -o $out $i
+o .\src\Index.ast : astj ..\..\.\src\Index.res
+rule deps
+  command = "C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\node_modules\rescript\win32\bsb_helper.exe" -hash 1481d3b3abb49a3c7e36ea3a94791437 $in
+  restat = 1
+o .\src\Index.d : deps .\src\Index.ast
+rule mij
+  command = "C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\node_modules\rescript\win32\bsc.exe" -I ".\src\@types" -I ".\src\lib" -I ".\src" -I "C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\node_modules\@rescript\react\lib\ocaml"   -bs-package-name rescript-electron-setup -bs-package-output commonjs:lib\js\$in_d:.js -bs-v $g_finger $i
+  dyndep = 1
+  restat = 1
+o .\src\Index.cmj .\src\Index.cmi ..\js\.\src\Index.js : mij .\src\Index.ast
+o .\src\HardwareOverlay.ast : astj ..\..\.\src\HardwareOverlay.res
+o .\src\HardwareOverlay.d : deps .\src\HardwareOverlay.ast
+o .\src\HardwareOverlay.cmj .\src\HardwareOverlay.cmi ..\js\.\src\HardwareOverlay.js : mij .\src\HardwareOverlay.ast
+o .\src\lib\document.ast : astj ..\..\.\src\lib\document.res
+o .\src\lib\document.d : deps .\src\lib\document.ast
+o .\src\lib\document.cmj .\src\lib\document.cmi ..\js\.\src\lib\document.js : mij .\src\lib\document.ast
+o .\src\lib\electron.ast : astj ..\..\.\src\lib\electron.res
+o .\src\lib\electron.d : deps .\src\lib\electron.ast
+o .\src\lib\electron.cmj .\src\lib\electron.cmi ..\js\.\src\lib\electron.js : mij .\src\lib\electron.ast

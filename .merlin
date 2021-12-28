@@ -1,0 +1,12 @@
+####{BSB GENERATED: NO EDIT
+FLG -ppx "C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\node_modules\rescript\win32\bsc.exe -as-ppx -bs-jsx 3"
+S C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\node_modules\rescript\lib\ocaml
+B C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\node_modules\rescript\lib\ocaml
+FLG -w +a-4-9-20-40-41-42-50-61-102
+S C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\node_modules\@rescript\react\lib\ocaml
+B C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\node_modules\@rescript\react\lib\ocaml
+S .\src
+B lib\bs\.\src
+S .\src\lib
+B lib\bs\.\src\lib
+####BSB GENERATED: NO EDIT}
