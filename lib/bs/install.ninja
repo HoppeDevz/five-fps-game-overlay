@@ -11,12 +11,24 @@ o HardwareOverlay.cmi : cp ..\bs\.\src\HardwareOverlay.cmi
 o HardwareOverlay.cmj : cp ..\bs\.\src\HardwareOverlay.cmj
 o HardwareOverlay.cmt : cp ..\bs\.\src\HardwareOverlay.cmt
 o HardwareOverlay.res : cp ..\..\.\src\HardwareOverlay.res
-o document.cmi : cp ..\bs\.\src\lib\document.cmi
-o document.cmj : cp ..\bs\.\src\lib\document.cmj
-o document.cmt : cp ..\bs\.\src\lib\document.cmt
-o document.res : cp ..\..\.\src\lib\document.res
-o electron.cmi : cp ..\bs\.\src\lib\electron.cmi
-o electron.cmj : cp ..\bs\.\src\lib\electron.cmj
-o electron.cmt : cp ..\bs\.\src\lib\electron.cmt
-o electron.res : cp ..\..\.\src\lib\electron.res
-build install.stamp : touch Index.cmi Index.cmj HardwareOverlay.cmi HardwareOverlay.cmj document.cmi document.cmj electron.cmi electron.cmj 
+o JSON.cmi : cp ..\bs\.\src\lib\JSON.cmi
+o JSON.cmj : cp ..\bs\.\src\lib\JSON.cmj
+o JSON.cmt : cp ..\bs\.\src\lib\JSON.cmt
+o JSON.res : cp ..\..\.\src\lib\JSON.res
+o Process.cmi : cp ..\bs\.\src\lib\Process.cmi
+o Process.cmj : cp ..\bs\.\src\lib\Process.cmj
+o Process.cmt : cp ..\bs\.\src\lib\Process.cmt
+o Process.res : cp ..\..\.\src\lib\Process.res
+o Electron.cmi : cp ..\bs\.\src\lib\Electron.cmi
+o Electron.cmj : cp ..\bs\.\src\lib\Electron.cmj
+o Electron.cmt : cp ..\bs\.\src\lib\Electron.cmt
+o Electron.res : cp ..\..\.\src\lib\Electron.res
+o FileSystem.cmi : cp ..\bs\.\src\lib\FileSystem.cmi
+o FileSystem.cmj : cp ..\bs\.\src\lib\FileSystem.cmj
+o FileSystem.cmt : cp ..\bs\.\src\lib\FileSystem.cmt
+o FileSystem.res : cp ..\..\.\src\lib\FileSystem.res
+o ConfigReader.cmi : cp ..\bs\.\src\lib\ConfigReader.cmi
+o ConfigReader.cmj : cp ..\bs\.\src\lib\ConfigReader.cmj
+o ConfigReader.cmt : cp ..\bs\.\src\lib\ConfigReader.cmt
+o ConfigReader.res : cp ..\..\.\src\lib\ConfigReader.res
+build install.stamp : touch Index.cmi Index.cmj HardwareOverlay.cmi HardwareOverlay.cmj JSON.cmi JSON.cmj Process.cmi Process.cmj Electron.cmi Electron.cmj FileSystem.cmi FileSystem.cmj ConfigReader.cmi ConfigReader.cmj 

@@ -1,1 +1,0 @@
-@val external document: 'a = "document"

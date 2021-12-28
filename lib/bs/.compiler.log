@@ -1,38 +1,50 @@
-#Start(15393280)
+#Start(19189409)
 
   Warning number 27
-  C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\src\HardwareOverlay.res:38:15-24
+  C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\src\lib\ConfigReader.res:50:15-33
 
-  36 │ 
-  37 │         switch response {
-  38 │             | systemInfo => setSystemInfo(_ => { 
-  39 │                 "cpu": response.cpu,  
-  40 │                 "gpu":response.gpu,
+  48 │ 
+  49 │         switch data {
+  50 │             | defaultSettingsType => data
+  51 │             | None => defaultSettings
+  52 │         }
+
+  unused variable defaultSettingsType.
+
+
+  Warning number 11
+  C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\src\lib\ConfigReader.res:51:15-18
+
+  49 ┆     switch data {
+  50 ┆         | defaultSettingsType => data
+  51 ┆         | None => defaultSettings
+  52 ┆     }
+  53 ┆ }
+
+  this match case is unused.
+
+
+  Warning number 27
+  C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\src\HardwareOverlay.res:40:15-24
+
+  38 │ 
+  39 │         switch response {
+  40 │             | systemInfo => setSystemInfo(_ => { 
+  41 │                 "cpu": response.cpu,  
+  42 │                 "gpu":response.gpu,
 
   unused variable systemInfo.
 
 
   Warning number 11
-  C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\src\HardwareOverlay.res:47:15-18
+  C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\src\HardwareOverlay.res:49:15-18
 
-  45 ┆             "memoryPercentage": response.memoryPercentage
-  46 ┆         })
-  47 ┆         | None => Js.log("None")
-  48 ┆     }
-  49 ┆ }
+  47 ┆             "memoryPercentage": response.memoryPercentage
+  48 ┆         })
+  49 ┆         | None => Js.log("None")
+  50 ┆     }
+  51 ┆ }
 
   this match case is unused.
 
-
-  Warning number 26
-  C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\src\HardwareOverlay.res:53:13-20
-
-  51 │     React.useEffect0(() => {
-  52 │ 
-  53 │         let interval = Js.Global.setInterval(sendToIpcMain, 1500)
-  54 │         None
-  55 │     })
-
-  unused variable interval.
-
-#Done(15393516)
+#Done(19189881)

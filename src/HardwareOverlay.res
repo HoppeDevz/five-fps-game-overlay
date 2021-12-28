@@ -1,4 +1,5 @@
-open Electron;
+open Electron
+open ConfigReader
 
 @send external toFixed: (float, ~floating: int) => string = "toFixed"
 
@@ -29,6 +30,7 @@ let make = () => {
     }
 
     let (systemInfo, setSystemInfo) = React.useState(_ => systemInfoStartValue)
+    let (containerPosition, setContainerPos) = React.useState(_ => "top-right")
 
     let sendToIpcMain = () => {
 
@@ -48,15 +50,25 @@ let make = () => {
         }
     }
 
+    let mergeAndReadConfigFile = () => {
+
+        ConfigReader.mergeSettingsFile()
+
+        let data = ConfigReader.readSettingsFile()
+
+        setContainerPos(_ => data["hardwareOverlayPos"])
+    }
+
     React.useEffect0(() => {
 
-        let interval = Js.Global.setInterval(sendToIpcMain, 1500)
+        let _ = mergeAndReadConfigFile()
+        let _ = Js.Global.setInterval(sendToIpcMain, 1500)
         None
     })
 
     <div className="overlay-wrapper">
 
-        <div className="system-informations">
+        <div className={"system-informations" ++ " " ++ containerPosition}>
 
             {"Overlay" -> s}
 

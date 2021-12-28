@@ -4,7 +4,7 @@ rule astj
   command = "C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\node_modules\rescript\win32\bsc.exe"  -bs-v 9.1.4 -bs-jsx 3  -absname -bs-ast -o $out $i
 o .\src\Index.ast : astj ..\..\.\src\Index.res
 rule deps
-  command = "C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\node_modules\rescript\win32\bsb_helper.exe" -hash 1481d3b3abb49a3c7e36ea3a94791437 $in
+  command = "C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\node_modules\rescript\win32\bsb_helper.exe" -hash 5b16d02372cd95a952d3d4c9a4914162 $in
   restat = 1
 o .\src\Index.d : deps .\src\Index.ast
 rule mij
@@ -15,9 +15,18 @@ o .\src\Index.cmj .\src\Index.cmi ..\js\.\src\Index.js : mij .\src\Index.ast
 o .\src\HardwareOverlay.ast : astj ..\..\.\src\HardwareOverlay.res
 o .\src\HardwareOverlay.d : deps .\src\HardwareOverlay.ast
 o .\src\HardwareOverlay.cmj .\src\HardwareOverlay.cmi ..\js\.\src\HardwareOverlay.js : mij .\src\HardwareOverlay.ast
-o .\src\lib\document.ast : astj ..\..\.\src\lib\document.res
-o .\src\lib\document.d : deps .\src\lib\document.ast
-o .\src\lib\document.cmj .\src\lib\document.cmi ..\js\.\src\lib\document.js : mij .\src\lib\document.ast
-o .\src\lib\electron.ast : astj ..\..\.\src\lib\electron.res
-o .\src\lib\electron.d : deps .\src\lib\electron.ast
-o .\src\lib\electron.cmj .\src\lib\electron.cmi ..\js\.\src\lib\electron.js : mij .\src\lib\electron.ast
+o .\src\lib\JSON.ast : astj ..\..\.\src\lib\JSON.res
+o .\src\lib\JSON.d : deps .\src\lib\JSON.ast
+o .\src\lib\JSON.cmj .\src\lib\JSON.cmi ..\js\.\src\lib\JSON.js : mij .\src\lib\JSON.ast
+o .\src\lib\Process.ast : astj ..\..\.\src\lib\Process.res
+o .\src\lib\Process.d : deps .\src\lib\Process.ast
+o .\src\lib\Process.cmj .\src\lib\Process.cmi ..\js\.\src\lib\Process.js : mij .\src\lib\Process.ast
+o .\src\lib\Electron.ast : astj ..\..\.\src\lib\Electron.res
+o .\src\lib\Electron.d : deps .\src\lib\Electron.ast
+o .\src\lib\Electron.cmj .\src\lib\Electron.cmi ..\js\.\src\lib\Electron.js : mij .\src\lib\Electron.ast
+o .\src\lib\FileSystem.ast : astj ..\..\.\src\lib\FileSystem.res
+o .\src\lib\FileSystem.d : deps .\src\lib\FileSystem.ast
+o .\src\lib\FileSystem.cmj .\src\lib\FileSystem.cmi ..\js\.\src\lib\FileSystem.js : mij .\src\lib\FileSystem.ast
+o .\src\lib\ConfigReader.ast : astj ..\..\.\src\lib\ConfigReader.res
+o .\src\lib\ConfigReader.d : deps .\src\lib\ConfigReader.ast
+o .\src\lib\ConfigReader.cmj .\src\lib\ConfigReader.cmi ..\js\.\src\lib\ConfigReader.js : mij .\src\lib\ConfigReader.ast

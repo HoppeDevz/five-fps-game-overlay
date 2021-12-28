@@ -55,7 +55,7 @@ function createWindow() {
       preload: path.join(__dirname, 'preload.js'),
     },
 
-    focusable: false,
+    focusable: true,
 
     transparent: true,
     alwaysOnTop: true
@@ -69,8 +69,8 @@ function createWindow() {
   mainWindow.setFullScreenable(false);
   */
 
-  mainWindow.setIgnoreMouseEvents(true);
-
+  // mainWindow.setIgnoreMouseEvents(true);
+  
   overlayWindow.attachTo(mainWindow, "The Classic PW");
 }
 

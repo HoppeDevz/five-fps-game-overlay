@@ -1,1 +1,1 @@
-src\HardwareOverlay.cmj : .\src\lib\electron.cmj .\src\lib\electron.cmi
+src\HardwareOverlay.cmj : .\src\lib\ConfigReader.cmj .\src\lib\ConfigReader.cmi .\src\lib\Electron.cmj .\src\lib\Electron.cmi
