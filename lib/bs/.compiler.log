@@ -1,50 +1,50 @@
-#Start(19189409)
+#Start(22701497)
 
   Warning number 27
-  C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\src\lib\ConfigReader.res:50:15-33
+  C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\src\lib\ConfigReader.res:52:15-33
 
-  48 │ 
-  49 │         switch data {
-  50 │             | defaultSettingsType => data
-  51 │             | None => defaultSettings
-  52 │         }
+  50 │         switch data {
+  51 │ 
+  52 │             | defaultSettingsType => data
+  53 │             | None => defaultSettings
+  54 │         }
 
   unused variable defaultSettingsType.
 
 
   Warning number 11
-  C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\src\lib\ConfigReader.res:51:15-18
+  C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\src\lib\ConfigReader.res:53:15-18
 
-  49 ┆     switch data {
-  50 ┆         | defaultSettingsType => data
-  51 ┆         | None => defaultSettings
-  52 ┆     }
-  53 ┆ }
+  51 │ 
+  52 │             | defaultSettingsType => data
+  53 │             | None => defaultSettings
+  54 │         }
+  55 │     }
 
   this match case is unused.
 
 
   Warning number 27
-  C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\src\HardwareOverlay.res:40:15-24
+  C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\src\HardwareOverlay.res:43:15-24
 
-  38 │ 
-  39 │         switch response {
-  40 │             | systemInfo => setSystemInfo(_ => { 
-  41 │                 "cpu": response.cpu,  
-  42 │                 "gpu":response.gpu,
+  41 │ 
+  42 │         switch response {
+  43 │             | systemInfo => setSystemInfo(_ => response)
+  44 │             | None => Js.log("None")
+  45 │         }
 
   unused variable systemInfo.
 
 
   Warning number 11
-  C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\src\HardwareOverlay.res:49:15-18
+  C:\Users\gabri\Desktop\FIVEFPS-PROJECT\FiveFPS\app\game-overlay\src\HardwareOverlay.res:44:15-18
 
-  47 ┆             "memoryPercentage": response.memoryPercentage
-  48 ┆         })
-  49 ┆         | None => Js.log("None")
-  50 ┆     }
-  51 ┆ }
+  42 ┆     switch response {
+  43 ┆         | systemInfo => setSystemInfo(_ => response)
+  44 ┆         | None => Js.log("None")
+  45 ┆     }
+  46 ┆ }
 
   this match case is unused.
 
-#Done(19189881)
+#Done(22701901)

@@ -1,4 +1,4 @@
-.overlay-wrapper {
+.hardware-overlay-wrapper {
     position: relative;
 
     width: 100vw;
@@ -14,18 +14,16 @@
     align-items: flex-start;
 }
 
-.overlay-wrapper .system-informations.top-left {
+.hardware-overlay-wrapper .system-informations.top-left {
     position: absolute;
+    width: 250px;
 
     top: 0;
     left: 0;
 
-    width: 200px;
-    height: 300px;
-
     background-color: rgba(0, 0, 0, 0.5);
 }
-.overlay-wrapper .system-informations.top-right {
+.hardware-overlay-wrapper .system-informations.top-right {
     position: absolute;
 
     top: 0;
@@ -36,7 +34,7 @@
 
     background-color: rgba(0, 0, 0, 0.5);
 }
-.overlay-wrapper .system-informations.bottom-left {
+.hardware-overlay-wrapper .system-informations.bottom-left {
     position: absolute;
 
     bottom: 0;
@@ -47,7 +45,7 @@
 
     background-color: rgba(0, 0, 0, 0.5);
 }
-.overlay-wrapper .system-informations.bottom-right {
+.hardware-overlay-wrapper .system-informations.bottom-right {
     position: absolute;
 
     bottom: 0;
@@ -57,4 +55,44 @@
     height: 300px;
 
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+.hardware-overlay-wrapper .header-container {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 5px 5px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+.hardware-overlay-wrapper .header-container .text {
+    font-size: 16px;
+    font-weight: bold;
+
+    color: rgba(255, 255, 255, 0.8);
+}
+.hardware-overlay-wrapper .header-container .image {
+    width: 20px;
+}
+
+
+.hardware-overlay-wrapper .info-container {
+    display: flex;
+    flex-direction: row;
+}
+.hardware-overlay-wrapper .info-container .label {
+    font-weight: bold;
+    font-size: 12px;
+
+    color: white;
+}
+.hardware-overlay-wrapper .info-container .value {
+    font-weight: bold;
+    font-size: 12px;
+
+    color: rgba(255, 255, 255, 0.6);
 }

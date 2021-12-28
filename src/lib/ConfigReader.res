@@ -6,7 +6,8 @@ module ConfigReader = {
 
     let defaultSettings = {
 
-        "hardwareOverlayPos": "top-left"
+        "hardwareOverlayPos": "top-left",
+        "backgroundColor": "#08080864",
     }
 
     let createSettingsDir = (~path: string) => {
@@ -47,6 +48,7 @@ module ConfigReader = {
         let data = JSON.parse(buffer)
 
         switch data {
+
             | defaultSettingsType => data
             | None => defaultSettings
         }

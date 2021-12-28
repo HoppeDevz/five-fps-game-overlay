@@ -30,22 +30,17 @@ let make = () => {
     }
 
     let (systemInfo, setSystemInfo) = React.useState(_ => systemInfoStartValue)
+
+
     let (containerPosition, setContainerPos) = React.useState(_ => "top-right")
+    let (containerBackground, setContainerBackground) = React.useState(_ => "#08080864")
 
     let sendToIpcMain = () => {
 
         let response = ipcRenderer["sendSync"](."get-system-infos", Js.null)
 
         switch response {
-            | systemInfo => setSystemInfo(_ => { 
-                "cpu": response.cpu,  
-                "gpu":response.gpu,
-
-                "memoryTotal": response.memoryTotal,
-                "memoryFree": response.memoryFree,
-                
-                "memoryPercentage": response.memoryPercentage
-            })
+            | systemInfo => setSystemInfo(_ => response)
             | None => Js.log("None")
         }
     }
@@ -57,6 +52,7 @@ let make = () => {
         let data = ConfigReader.readSettingsFile()
 
         setContainerPos(_ => data["hardwareOverlayPos"])
+        setContainerBackground(_ => data["backgroundColor"])
     }
 
     React.useEffect0(() => {
@@ -66,38 +62,72 @@ let make = () => {
         None
     })
 
-    <div className="overlay-wrapper">
+    <div className="hardware-overlay-wrapper">
 
-        <div className={"system-informations" ++ " " ++ containerPosition}>
+        <div 
+            style={ReactDOM.Style.make(~backgroundColor=containerBackground, ())}
+            className={"system-informations" ++ " " ++ containerPosition}
+        >
 
-            {"Overlay" -> s}
+            <h1 className="header-container">
 
-            <p>
-            {
-                systemInfo["cpu"] 
-                -> toFixed(~floating=1)
-                -> s
-            }
-            { "%" -> s }
-            </p>
+                <img className="image" src="./src/assets/rocket-20x20.png" />
+                <p className="text">{"FIVE.FPS" -> s}</p>
+            </h1>
 
-            <p>
-            {
-                systemInfo["gpu"] 
-                -> toFixed(~floating=1)
-                -> s
-            }
-            { "%" -> s }
-            </p>
+            <div 
+                style={ReactDOM.Style.make(
+                    ~display="flex", 
+                    ~flexDirection="row",
+                    ~justifyContent="space-between",
+                    ~alignItems="center",
 
-            <p>
-            {
-                systemInfo["memoryPercentage"]
-                -> toFixed(~floating=1)
-                -> s
-            }
-            { "%" -> s }
-            </p>
+                    ~padding="5px 10px",
+
+                    ()
+                )}
+            >
+                <div className="info-container">
+
+                    <p className="label">{"CPU: " -> s}</p>
+
+                    <p className="value">
+                        {
+                            systemInfo["cpu"] 
+                            -> toFixed(~floating=1)
+                            -> s
+                        }
+                        { "%" -> s }
+                    </p>
+                </div>
+
+                <div className="info-container">
+                    <p className="label">{"GPU: " -> s}</p>
+
+                    <p className="value">
+                        {
+                            systemInfo["gpu"] 
+                            -> toFixed(~floating=1)
+                            -> s
+                        }
+                        { "%" -> s }
+                    </p>
+                </div>
+
+                <div className="info-container">
+                        <p className="label">{"RAM: " -> s}</p>
+
+                        <p className="value">
+                            {
+                                systemInfo["memoryPercentage"] 
+                                -> toFixed(~floating=1)
+                                -> s
+                            }
+                            { "%" -> s }
+                        </p>
+                </div>
+            </div>
+
         </div>
     </div>
 }

@@ -9,6 +9,7 @@ const { currentLoad, mem, graphics } = require("systeminformation");
 
 let CURRENT_CPU_USAGE = 0.0;
 let CURRENT_MEMORY_USAGE = {memoryTotal: 0, memoryFree: 0, memoryPercentage: 0.0 };
+let CURRENT_GPU_USAGE = { gpuUsage: 0.0 };
 
 function getCpuUsage() {
 
@@ -16,12 +17,8 @@ function getCpuUsage() {
   currentLoad(callback);
 }
 function getGpuUsage() {
-
-  const callback = data => CURRENT_MEMORY_USAGE = { 
-    memoryTotal: data.total, 
-    memoryFree: data.free, 
-    memoryPercentage:  (1 - (data.free / data.total)) * 100
-  };
+  
+  const callback = data => CURRENT_GPU_USAGE = { gpuUsage: data.controllers[0].utilizationGpu };
   graphics(callback);
 }
 function getMemoryUsage() {
@@ -37,6 +34,7 @@ function getMemoryUsage() {
 
 setInterval(getCpuUsage, 1500);
 setInterval(getMemoryUsage, 1500);
+setInterval(getGpuUsage, 1500);
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
@@ -55,7 +53,7 @@ function createWindow() {
       preload: path.join(__dirname, 'preload.js'),
     },
 
-    focusable: true,
+    focusable: false,
 
     transparent: true,
     alwaysOnTop: true
@@ -69,14 +67,14 @@ function createWindow() {
   mainWindow.setFullScreenable(false);
   */
 
-  // mainWindow.setIgnoreMouseEvents(true);
+  mainWindow.setIgnoreMouseEvents(true);
   
   overlayWindow.attachTo(mainWindow, "The Classic PW");
 }
 
 ipcMain.on("get-system-infos", (event, data) => {
 
-  let returnValue = { cpu: CURRENT_CPU_USAGE, gpu: 10, ...CURRENT_MEMORY_USAGE };
+  let returnValue = { cpu: CURRENT_CPU_USAGE, gpu: CURRENT_GPU_USAGE.gpuUsage, ...CURRENT_MEMORY_USAGE };
 
   console.log({ returnValue });
 
